@@ -69,7 +69,8 @@
             	    artyom.say("Hola, esto está en Español", {
             lang:"es-ES"
         });
-    },
+		}
+	},
 	{
         indexes: ["translate hindi how you"],
         action: function(){
@@ -77,7 +78,8 @@
             	    artyom.say("tum keise ho?", {
             lang:"hi-IN"
         });
-    },
+		}
+	},
 {
         indexes: ["good day"],
         action: function(){
