@@ -16,7 +16,7 @@
                 
                 var forHello = [
                     "Ring a ding ding, you're talking to the king.",
-                    "Hi, is John there?",
+                    "Hi, is anyone there?",
                     'How goes it?'
                 ];
                 
@@ -34,6 +34,101 @@
                 }
             }
         },
+            {
+        indexes: ["please repeat","repeat"],
+        action: function(){
+            artyom.repeatLastSay();
+        }
+    },
+    {
+        indexes: ["thank you"],
+        action: function(){
+			document.getElementById("span-output").innerHTML="You are most Welcome! ";
+            artyom.say("You are most Welcome!");
+        }
+    },
+        {
+         indexes: ["hello","good morning","hey"], // These spoken words will trigger the execution of the command
+         action: function(){ // Action to be executed when a index match with spoken word
+			document.getElementById("span-output").innerHTML="Hey buddy ! How are you today? ";
+              artyom.say("Hey buddy ! How are you today?");
+        }
+    },
+{
+        indexes: ["good day"],
+        action: function(){
+			document.getElementById("span-output").innerHTML="good Day, how are you ? ";
+            artyom.say("good Day, how are you ?");
+        }
+    },
+    {
+        indexes: ["good afternoon"],
+        action: function(){
+			document.getElementById("span-output").innerHTML="good afternoon, how are you ? ";
+            artyom.say("good afternoon, how are you ?");
+        }
+    },
+{
+        indexes: ["good night"],
+        action: function(){
+			document.getElementById("span-output").innerHTML="good night, Have a sound sleep ! ";
+            artyom.say("good night, Have a sound sleep !");
+        }
+    },
+        {
+        indexes:["What time is it","Is too late","day of week","month of the year"],
+        action:function(i){ // var i returns the index of the recognized command in the previous array
+            if(i == 0){
+                var d = new Date()				
+				document.getElementById("span-output").innerHTML=d.toString();
+				artyom.say( d.toString() ) // something like 'Wed Jan 26 2011 13:42:28 GMT'
+
+            }if(i == 1){
+			document.getElementById("span-output").innerHTML="Never is too late to do something my friend ! ";
+                artyom.say("Never is too late to do something my friend !");
+            }if(i == 2){
+			var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+			var nowD = new Date();
+			var day= days[nowD.getDay()];	
+			document.getElementById("span-output").innerHTML="Today is "+day.toString();			
+                artyom.say("Today is "+day.toString());
+            }else if(i == 3){			
+			var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+			var nowM = new Date();
+			var month = months[nowM.getMonth()];
+			document.getElementById("span-output").innerHTML="This month is "+month.toString();
+                artyom.say("This month is "+month.toString());
+            }
+        }
+    },
+        {
+        indexes: ["today's weather","weather"],
+        action: function loadWeather(location,woeid){
+		if ("geolocation" in navigator) {
+ navigator.geolocation.getCurrentPosition(function(position) {
+    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+  });
+}else{
+loadWeather("Dhaka","BD");
+}
+  $.simpleWeather({
+    location: location,
+    woeid: woeid,
+    unit: 'C',
+    success: function(weather) {
+      var weatherC = weather.temp+" degrees celsius, or "+weather.alt.temp+" degrees fahrenheit , in "+weather.city+", "+weather.country+". And The sky is "+weather.currently+". The Sun Rises at "+weather.sunrise+" And sets at "+weather.sunset;
+	  artyom.say("Today's weather is "+weatherC);
+document.getElementById("span-output").innerHTML="Today's weather is "+weatherC;
+		
+    },
+    error: function(error) {
+	  document.getElementById("span-output").innerHTML="Error "+error;
+		artyom.say("Error "+error);
+    }
+				});
+					}
+	
+    },
         {
             indexes: ["translate * in Spanish","translate * in german"],
             smart:true,
@@ -121,11 +216,13 @@
                 wildcard = wildcard || "";
                 
                 switch(wildcard.toLowerCase()){
-                    case "initialization":
-                        sdkcarlos.scrollTo("#section-initialize");
+                    case "blogger":
+                        window.location.href = "https://www.blogger.com/blogger.g?blogID=5710199269128346758#templatehtml";
                     break;
-                    case "download":
-                        sdkcarlos.scrollTo("#section-download");
+                    case "reload":
+                        artyom.say("This page is loading please wait...");
+			            document.getElementById("span-output").innerHTML="This page is loading please wait...";
+                        window.location.reload(true); //Refresh the page
                     break;
                     case "voice commands":
                         sdkcarlos.scrollTo("#section-voicecommands");
@@ -137,7 +234,7 @@
                         sdkcarlos.scrollTo("#section-speechapi");
                     break;
                     case "github":
-                        window.location.href = "https://github.com/sdkcarlos/artyom.js";
+                        window.location.href = "https://github.com/ray2ker/blindsweb/edit/master/artyomCommands.js";
                     break;
                     default:
                         console.warn("Location "+wildcard+" has been not saved.");
