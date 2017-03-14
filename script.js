@@ -20,8 +20,8 @@
                   
                   'go to * '
                ];
-                     document.getElementById("weather").className = "well";
-                     document.getElementById("weather").innerHTML="The keywords are: "+keywords;
+                     document.getElementById("weather").className = "well text-justify";
+                     document.getElementById("weather").innerHTML="<b>The keywords are:</b> "+keywords;
                      
                      
                    })(window);
