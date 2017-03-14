@@ -20,6 +20,7 @@
                   
                   'go to * '
                ];
+                     document.getElementById("weather")..ClassNames.add("well");
                      document.getElementById("weather").innerHTML="The keywords are: "+keywords;
                      
                      
