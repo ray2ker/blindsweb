@@ -34,7 +34,15 @@
                 }
             }
         },
-            {
+	    {
+        indexes: ["please reload","reload"],
+        action: function(){
+	    artyom.say("This page is loading please wait...");
+		document.getElementById("span-output").innerHTML="This page is loading please wait...";
+                window.location.reload(true); //Refresh the page
+            }
+    },
+		{
         indexes: ["please repeat","repeat"],
         action: function(){
             artyom.repeatLastSay();
@@ -102,7 +110,7 @@
         }
     },
         {
-        indexes: ["today's weather","weather"],
+        indexes: ["today's weather"],
         action: function loadWeather(location,woeid){
 		if ("geolocation" in navigator) {
  navigator.geolocation.getCurrentPosition(function(position) {
@@ -117,8 +125,8 @@ loadWeather("Dhaka","BD");
     unit: 'C',
     success: function(weather) {
       var weatherC = weather.temp+" degrees celsius, or "+weather.alt.temp+" degrees fahrenheit , in "+weather.city+", "+weather.country+". And The sky is "+weather.currently+". The Sun Rises at "+weather.sunrise+" And sets at "+weather.sunset;
-	  artyom.say("Today's weather is "+weatherC);
-document.getElementById("span-output").innerHTML="Today's weather is "+weatherC;
+	  artyom.say("The weather of today is "+weatherC);
+document.getElementById("span-output").innerHTML="The weather of today is "+weatherC;
 		
     },
     error: function(error) {
@@ -221,7 +229,7 @@ document.getElementById("span-output").innerHTML="Today's weather is "+weatherC;
                     break;
                     case "reload":
                         artyom.say("This page is loading please wait...");
-			            document.getElementById("span-output").innerHTML="This page is loading please wait...";
+			document.getElementById("span-output").innerHTML="This page is loading please wait...";
                         window.location.reload(true); //Refresh the page
                     break;
                     case "voice commands":
