@@ -63,7 +63,7 @@
         }
     },
 	{
-        indexes: ["translate spanish"],
+        indexes: ["tell me spanish"],
         action: function(){
 			document.getElementById("span-output").innerHTML="Hola, esto está en Español ";
             	    artyom.say("Hola, esto está en Español", {
@@ -72,7 +72,7 @@
 		}
 	},
 	{
-        indexes: ["translate Hindi"],
+        indexes: ["tell me Hindi"],
         action: function(){
 			document.getElementById("span-output").innerHTML="tum keise ho? ";
             	    artyom.say("tum keise ho?", {
