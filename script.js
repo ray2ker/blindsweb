@@ -2,4 +2,4 @@
                      document.getElementById("weather").innerHTML=artyomCommands;
                      
                      
-                    }(window);
+                   })(window);
