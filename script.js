@@ -16,9 +16,11 @@
                   "Pronunciate *",
                   "Shut down yourself",
                   'I love you','I love you so much','do you love me',
+                  
+                  
                   'go to * '
                ];
-                     document.getElementById("weather").innerHTML=keywords;
+                     document.getElementById("weather").innerHTML="The keywords are: "+keywords;
                      
                      
                    })(window);
