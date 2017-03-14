@@ -62,6 +62,22 @@
               artyom.say("Hey buddy ! How are you today?");
         }
     },
+	{
+        indexes: ["translate spanish"],
+        action: function(){
+			document.getElementById("span-output").innerHTML="Hola, esto está en Español ";
+            	    artyom.say("Hola, esto está en Español", {
+            lang:"es-ES"
+        });
+    },
+	{
+        indexes: ["translate hindi how you"],
+        action: function(){
+			document.getElementById("span-output").innerHTML="tum keise ho? ";
+            	    artyom.say("tum keise ho?", {
+            lang:"hi-IN"
+        });
+    },
 {
         indexes: ["good day"],
         action: function(){
@@ -232,8 +248,8 @@ document.getElementById("span-output").innerHTML="The weather of today is "+weat
 			document.getElementById("span-output").innerHTML="This page is loading please wait...";
                         window.location.reload(true); //Refresh the page
                     break;
-                    case "voice commands":
-                        sdkcarlos.scrollTo("#section-voicecommands");
+                    case "source code":
+                        window.location.href = "view-source:https://blindsweb.blogspot.com/";
                     break;
                     case "other features":
                         sdkcarlos.scrollTo("#section-otherfeatures");
