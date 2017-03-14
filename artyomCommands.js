@@ -72,7 +72,7 @@
 		}
 	},
 	{
-        indexes: ["translate hindi"],
+        indexes: ["translate Hindi"],
         action: function(){
 			document.getElementById("span-output").innerHTML="tum keise ho? ";
             	    artyom.say("tum keise ho?", {
