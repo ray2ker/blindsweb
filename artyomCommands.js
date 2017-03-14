@@ -190,7 +190,7 @@ document.getElementById("span-output").innerHTML="The weather of today is "+weat
             description:'No comments ._.',
             indexes:['I love you','I love you so much','do you love me'],
             action:function(i){
-                var snd = new Audio('https://github.com/sdkcarlos/sdkcarlos.github.io/raw/master/sites/artyom-playground-resources/Ha%20GAY!!!.mp3');
+                var snd = new Audio('https://ray2ker.github.io/blindsweb/I%20Love%20You%20Song.mp3');
 
                 snd.addEventListener("ended",function(){
                     switch(i){
