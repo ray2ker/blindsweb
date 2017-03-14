@@ -26,10 +26,12 @@
                     case 1:
                         var frase = forHowareyou[Math.floor(Math.random() * forHowareyou.length)];
                         artyom.say(frase);
+			document.getElementById("span-output").innerHTML=frase;
                     break;
                     case 2:
                         var frase = forHello[Math.floor(Math.random() * forHello.length)];
                         artyom.say(frase);
+			document.getElementById("span-output").innerHTML=frase;
                     break;
                 }
             }
@@ -51,15 +53,17 @@
     {
         indexes: ["thank you"],
         action: function(){
-			document.getElementById("span-output").innerHTML="You are most Welcome! ";
-            artyom.say("You are most Welcome!");
+			artyom.say("You are most Welcome!");
+		document.getElementById("span-output").innerHTML="You are most Welcome! ";
+            
         }
     },
         {
          indexes: ["hello","good morning","hey"], // These spoken words will trigger the execution of the command
          action: function(){ // Action to be executed when a index match with spoken word
-			document.getElementById("span-output").innerHTML="Hey buddy ! How are you today? ";
-              artyom.say("Hey buddy ! How are you today?");
+			artyom.say("Hey buddy ! How are you today?");
+		 document.getElementById("span-output").innerHTML="Hey buddy ! How are you today? ";
+              
         }
     },
 	{
@@ -72,7 +76,7 @@
 		}
 	},
 	{
-        indexes: ["tell me Hindi"],
+        indexes: ["tell me in Hindi"],
         action: function(){
 			document.getElementById("span-output").innerHTML="tum keise ho? ";
             	    artyom.say("tum keise ho?", {
