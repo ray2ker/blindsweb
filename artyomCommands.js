@@ -195,7 +195,7 @@ document.getElementById("span-output").innerHTML="The weather of today is "+weat
         },
         {
             description: "Pronunciate all that i say after <b>Pronunciate</b>",
-            indexes: ["Pronunciate *"],
+            indexes: ["say *"],
             smart:true,
             action : function(i,wildcard,sentence){
                 artyom.say(wildcard);
@@ -206,6 +206,13 @@ document.getElementById("span-output").innerHTML="The weather of today is "+weat
             indexes: ["Shut down yourself"],
             action : function(i,wildcard,sentence){
                 artyom.fatality();
+            }
+        }, 
+	  {
+            description: "Stop artyom with your voice",
+            indexes: ["Shutup"],
+            action : function(i,wildcard,sentence){
+               artyom.shutUp();
             }
         },
         {
