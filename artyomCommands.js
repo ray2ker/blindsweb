@@ -156,7 +156,7 @@ document.getElementById("span-output").innerHTML="The weather of today is "+weat
 		artyom.say("Error "+error);
     }
 				});
-					}
+					}window.location.reload(true); //Refresh the page
 	
     },
         {
